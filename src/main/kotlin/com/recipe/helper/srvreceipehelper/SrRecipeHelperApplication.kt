@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SrvReceipeHelperApplication
+class SrRecipeHelperApplication
 
 fun main(args: Array<String>) {
-	runApplication<SrvReceipeHelperApplication>(*args)
+    runApplication<SrRecipeHelperApplication>(*args)
 }
