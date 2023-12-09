@@ -7,5 +7,5 @@ data class Recipe(
     val recipeName: String,
     val recipeDescription: String? = null,
     val packagingSize: Int,
-    val packagingType: String,
+    val packagingType: String
 )

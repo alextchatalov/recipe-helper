@@ -1,5 +1,6 @@
 package com.recipe.helper.srvreceipehelper.gateway.entities
 
+import com.recipe.helper.srvreceipehelper.core.model.Company
 import com.recipe.helper.srvreceipehelper.core.model.Recipe
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -10,18 +11,16 @@ import jakarta.persistence.OneToMany
 import java.util.UUID
 
 @Entity
-class RecipeEntity(
+class CompanyEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private val id: UUID?,
-    private val recipeName: String,
-    private val recipeDescription: String? = null,
-    private val packagingSize: Int,
-    private val packagingType: String,
-    @ManyToOne
-    private val company: CompanyEntity
+    private val name: String,
+    private val cnpj: String,
+    @OneToMany
+    private val recipes: List<RecipeEntity>
 ) {
-    fun convertToRecipe(): Recipe {
-        return Recipe(id, recipeName, recipeDescription, packagingSize, packagingType)
+    fun convertToCompany(): Company {
+        return Company(id, name, cnpj, recipes.map { it.convertToRecipe() })
     }
 }
