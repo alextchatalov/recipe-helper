@@ -19,7 +19,7 @@ class RecipeEntity(
     private val packagingSize: Int,
     private val packagingType: String,
     @ManyToOne
-    private val company: CompanyEntity
+    private val company: CompanyEntity? = null
 ) {
     fun convertToRecipe(): Recipe {
         return Recipe(id, recipeName, recipeDescription, packagingSize, packagingType)

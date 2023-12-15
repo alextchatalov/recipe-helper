@@ -8,7 +8,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.OneToOne
 import java.util.UUID
 
-@Entity
+
 class UserEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +18,4 @@ class UserEntity(
     private val password: String,
     @OneToOne
     private val company: CompanyEntity,
-) {
-    fun convertToUser(): User {
-        return User(id, name, login, password, company)
-    }
-}
+)
